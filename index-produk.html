@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glad2Glow - Produk</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff8fb;color:#222}
+header{padding:22px 5%;background:#fff;border-bottom:1px solid #f2d7e2;text-align:center}
+.logo{font-size:30px;font-weight:800;color:#d81b68}
+h1{text-align:center;color:#222;margin:35px 0 8px;font-size:40px}
+.sub{text-align:center;color:#6b6470;margin-bottom:28px}
+.products{width:min(1400px,94%);margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding-bottom:45px}
+.card{background:#fff;border:1px solid #f1d2df;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(120,40,80,.08);cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-4px)}
+.card img{display:block;width:100%;height:330px;object-fit:cover}
+.card .txt{padding:16px;text-align:center}
+.card h3{margin:0;color:#c2185b;font-size:18px}
+.card p{margin:8px 0 0;color:#6b6470;font-size:14px}
+.note{text-align:center;padding:0 20px 35px;color:#6b6470}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:99;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}
+.modal img{max-width:95vw;max-height:92vh;border-radius:14px;background:#fff}
+.close{position:fixed;top:18px;right:24px;width:44px;height:44px;border:0;border-radius:50%;background:#fff;font-size:28px;cursor:pointer}
+@media(max-width:1000px){.products{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.products{grid-template-columns:1fr}h1{font-size:30px}.card img{height:auto}}
+</style>
+</head>
+<body>
+<header><div class="logo">Glad2Glow</div></header>
+<h1>Produk Glad2Glow</h1>
+<div class="sub">Pilihan produk dan materi produk Glad2Glow</div>
+<section class="products">
+  <div class="card" onclick="openImg(1)"><img src="produk-1.png" alt="Produk Glad2Glow 1"><div class="txt"><h3>Produk Glad2Glow</h3><p>Lihat detail produk</p></div></div>
+  <div class="card" onclick="openImg(2)"><img src="produk-2.png" alt="Produk Glad2Glow 2"><div class="txt"><h3>Produk Glad2Glow</h3><p>Lihat detail produk</p></div></div>
+  <div class="card" onclick="openImg(3)"><img src="produk-3.png" alt="Produk Glad2Glow 3"><div class="txt"><h3>Produk Glad2Glow</h3><p>Lihat detail produk</p></div></div>
+  <div class="card" onclick="openImg(4)"><img src="produk-4.png" alt="Produk Glad2Glow 4"><div class="txt"><h3>Produk Glad2Glow</h3><p>Lihat detail produk</p></div></div>
+  <div class="card" onclick="openImg(5)"><img src="produk-5.png" alt="Produk Glad2Glow 5"><div class="txt"><h3>Produk Glad2Glow</h3><p>Lihat detail produk</p></div></div>
+</section>
+<div class="note">Klik gambar untuk melihat materi produk dalam ukuran lebih besar.</div>
+<div id="modal" class="modal" onclick="closeImg()">
+  <button class="close" onclick="closeImg(event)">×</button>
+  <img id="bigImg" src="" alt="Detail produk" onclick="event.stopPropagation()">
+</div>
+<script>
+function openImg(n){document.getElementById('bigImg').src='produk-'+n+'.png';document.getElementById('modal').classList.add('show')}
+function closeImg(e){if(e)e.stopPropagation();document.getElementById('modal').classList.remove('show')}
+</script>
+</body>
+</html>
