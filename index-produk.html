@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produk Glad2Glow</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#fff7fa,#f7e8ef);
+  color:#222;
+}
+header{
+  padding:22px 5%;
+  background:#fff;
+  border-bottom:1px solid #ead7e0;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+.logo{font-size:30px;font-weight:800;color:#d81b68}
+h1{margin:24px 0 8px;text-align:center;font-size:40px}
+.sub{text-align:center;color:#6b6470;margin:0 20px 28px}
+.products{
+  width:min(1500px,94%);
+  margin:0 auto 50px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+.product-card{
+  background:#fff;
+  border:1px solid #ead7e0;
+  border-radius:20px;
+  padding:10px;
+  box-shadow:0 10px 28px rgba(80,30,55,.12);
+  cursor:pointer;
+  transition:.2s;
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(80,30,55,.18)}
+.product-card img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:1/1;
+  object-fit:contain;
+  border-radius:14px;
+  background:#fff;
+}
+.product-card:last-child{
+  grid-column:1 / -1;
+  width:min(760px,100%);
+  justify-self:center;
+}
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:99;
+  background:rgba(0,0,0,.82);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.modal.show{display:flex}
+.modal img{
+  max-width:95vw;
+  max-height:92vh;
+  object-fit:contain;
+  border-radius:14px;
+  background:#fff;
+}
+.close{
+  position:fixed;
+  top:16px;
+  right:22px;
+  width:46px;height:46px;
+  border:0;border-radius:50%;
+  background:#fff;color:#333;
+  font-size:30px;
+  cursor:pointer;
+}
+@media(max-width:800px){
+  h1{font-size:30px}
+  .products{grid-template-columns:1fr;gap:16px}
+  .product-card:last-child{grid-column:auto;width:100%}
+}
+</style>
+</head>
+<body>
+
+<header><div class="logo">Glad2Glow</div></header>
+
+<h1>Produk Glad2Glow</h1>
+<p class="sub">Katalog produk Glad2Glow. Klik gambar untuk melihat tampilan lebih besar.</p>
+
+<section class="products">
+  <div class="product-card" onclick="openImg(1)"><img src="produk-1.png" alt="Katalog Produk Glad2Glow 1"></div>
+  <div class="product-card" onclick="openImg(2)"><img src="produk-2.png" alt="Katalog Produk Glad2Glow 2"></div>
+  <div class="product-card" onclick="openImg(3)"><img src="produk-3.png" alt="Katalog Produk Glad2Glow 3"></div>
+  <div class="product-card" onclick="openImg(4)"><img src="produk-4.png" alt="Katalog Produk Glad2Glow 4"></div>
+  <div class="product-card" onclick="openImg(5)"><img src="produk-5.png" alt="Katalog Produk Glad2Glow 5"></div>
+  <div class="product-card" onclick="openImg(6)"><img src="produk-6.png" alt="Katalog Produk Glad2Glow 6"></div>
+  <div class="product-card" onclick="openImg(7)"><img src="produk-7.png" alt="Katalog Produk Glad2Glow 7"></div>
+  <div class="product-card" onclick="openImg(8)"><img src="produk-8.png" alt="Katalog Produk Glad2Glow 8"></div>
+</section>
+
+<div id="modal" class="modal" onclick="closeImg(event)">
+  <button class="close" onclick="closeImg(event)">×</button>
+  <img id="bigImg" src="" alt="Detail produk" onclick="event.stopPropagation()">
+</div>
+
+<script>
+function openImg(n){
+  document.getElementById('bigImg').src='produk-'+n+'.png';
+  document.getElementById('modal').classList.add('show');
+}
+function closeImg(e){
+  if(e) e.stopPropagation();
+  document.getElementById('modal').classList.remove('show');
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.getElementById('modal').classList.remove('show');
+});
+</script>
+</body>
+</html>
