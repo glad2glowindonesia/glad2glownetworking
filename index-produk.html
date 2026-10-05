@@ -50,7 +50,11 @@ h1{margin:24px 0 8px;text-align:center;font-size:40px}
   border-radius:14px;
   background:#fff;
 }
-
+.product-card:last-child{
+  grid-column:1 / -1;
+  width:min(760px,100%);
+  justify-self:center;
+}
 .modal{
   display:none;
   position:fixed;
@@ -82,7 +86,7 @@ h1{margin:24px 0 8px;text-align:center;font-size:40px}
 @media(max-width:800px){
   h1{font-size:30px}
   .products{grid-template-columns:1fr;gap:16px}
-
+  .product-card:last-child{grid-column:auto;width:100%}
 }
 </style>
 </head>
@@ -102,7 +106,6 @@ h1{margin:24px 0 8px;text-align:center;font-size:40px}
   <div class="product-card" onclick="openImg(6)"><img src="produk-6.png" alt="Katalog Produk Glad2Glow 6"></div>
   <div class="product-card" onclick="openImg(7)"><img src="produk-7.png" alt="Katalog Produk Glad2Glow 7"></div>
   <div class="product-card" onclick="openImg(8)"><img src="produk-8.png" alt="Katalog Produk Glad2Glow 8"></div>
-  <div class="product-card" onclick="openImg(9)"><img src="produk-9.png" alt="Katalog Produk Glad2Glow 9"></div>
 </section>
 
 <div id="modal" class="modal" onclick="closeImg(event)">
