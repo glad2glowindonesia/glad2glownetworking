@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glad2Glow - Produk</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff7fa;font-family:Arial,Helvetica,sans-serif;color:#35121d}
+header{background:#fff;border-bottom:1px solid #ead6dd;padding:20px 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:30px;font-weight:800;color:#d81b68}
+nav{display:flex;gap:28px}
+nav a{text-decoration:none;color:#471452;font-weight:700}
+.title{text-align:center;padding:28px 15px 12px}
+.title h1{margin:0;font-size:42px}
+.title p{margin:10px 0;color:#765968;font-size:18px}
+.products{width:min(1500px,94%);margin:25px auto 60px;display:flex;flex-direction:column;gap:28px}
+.product{background:#fff;border:2px solid #ead6dd;border-radius:24px;padding:14px;box-shadow:0 10px 30px rgba(80,20,45,.12);cursor:pointer;transition:.2s}
+.product:hover{transform:translateY(-3px);box-shadow:0 15px 38px rgba(80,20,45,.2)}
+.product img{display:block;width:100%;height:auto;border-radius:16px}
+.hint{text-align:center;color:#8a6675;font-size:14px;margin-top:8px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.86);z-index:100;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.modal img{max-width:96vw;max-height:94vh;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 0 35px rgba(255,255,255,.15)}
+.close{position:fixed;right:22px;top:18px;width:46px;height:46px;border:2px solid #fff;border-radius:50%;background:#4d1024;color:#fff;font-size:30px;line-height:38px;cursor:pointer;z-index:101}
+@media(max-width:700px){
+ header{padding:15px 20px}nav{display:none}.logo{font-size:26px}
+ .title h1{font-size:32px}.products{width:96%;gap:18px}
+ .product{padding:8px;border-radius:18px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Glad2Glow</div>
+  <nav>
+    <a href="index.html">Tentang</a>
+    <a href="index-produk.html">Produk</a>
+    <a href="index.html">Bonus</a>
+    <a href="index.html">Lokasi</a>
+  </nav>
+</header>
+
+<div class="title">
+  <h1>Produk Glad2Glow</h1>
+  <p>Koleksi produk terbaru. Klik gambar untuk memperbesar.</p>
+</div>
+
+<section class="products">
+<div class="product" onclick="openImage('produk-1.png')">
+      <img src="produk-1.png" alt="Produk Glad2Glow 1">
+      <div class="hint">Klik gambar untuk melihat lebih besar</div>
+    </div>
+<div class="product" onclick="openImage('produk-2.png')">
+      <img src="produk-2.png" alt="Produk Glad2Glow 2">
+      <div class="hint">Klik gambar untuk melihat lebih besar</div>
+    </div>
+<div class="product" onclick="openImage('produk-3.png')">
+      <img src="produk-3.png" alt="Produk Glad2Glow 3">
+      <div class="hint">Klik gambar untuk melihat lebih besar</div>
+    </div>
+<div class="product" onclick="openImage('produk-4.png')">
+      <img src="produk-4.png" alt="Produk Glad2Glow 4">
+      <div class="hint">Klik gambar untuk melihat lebih besar</div>
+    </div>
+<div class="product" onclick="openImage('produk-5.png')">
+      <img src="produk-5.png" alt="Produk Glad2Glow 5">
+      <div class="hint">Klik gambar untuk melihat lebih besar</div>
+    </div>
+<div class="product" onclick="openImage('produk-6.png')">
+      <img src="produk-6.png" alt="Produk Glad2Glow 6">
+      <div class="hint">Klik gambar untuk melihat lebih besar</div>
+    </div>
+<div class="product" onclick="openImage('produk-7.png')">
+      <img src="produk-7.png" alt="Produk Glad2Glow 7">
+      <div class="hint">Klik gambar untuk melihat lebih besar</div>
+    </div>
+<div class="product" onclick="openImage('produk-8.png')">
+      <img src="produk-8.png" alt="Produk Glad2Glow 8">
+      <div class="hint">Klik gambar untuk melihat lebih besar</div>
+    </div>
+</section>
+
+<div class="modal" id="modal" onclick="closeImage(event)">
+  <button class="close" onclick="closeImage()">×</button>
+  <img id="bigImage" src="" alt="Tampilan produk diperbesar" onclick="event.stopPropagation()">
+</div>
+
+<script>
+function openImage(src){
+  document.getElementById('bigImage').src=src;
+  document.getElementById('modal').classList.add('show');
+}
+function closeImage(event){
+  if(event && event.target !== document.getElementById('modal')) return;
+  document.getElementById('modal').classList.remove('show');
+  document.getElementById('bigImage').src='';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeImage();
+});
+</script>
+</body>
+</html>
