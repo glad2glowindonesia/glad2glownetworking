@@ -58,7 +58,102 @@ body.legalitas-popup-open{overflow:hidden}
 .lightbox-close{position:absolute;top:18px;right:22px;width:46px;height:46px;border:0;border-radius:50%;background:#fff;color:#222;font-size:32px;line-height:1;cursor:pointer;z-index:2}
 body.lightbox-open{overflow:hidden}
 .catalog-card,.bonus-card{cursor:zoom-in}
+/* RAPAPIKAN JARAK ANTAR BAGIAN */
+#bonus,
+#cashback,
+#legalitas,
+#lokasi{
+  padding-top:32px !important;
+  padding-bottom:32px !important;
+}
 
+/* BONUS - buat isi lebih rapat dan tidak terlalu kosong */
+#bonus .bonus-grid{
+  max-width:1100px;
+  margin:20px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+#bonus .bonus-card{
+  width:100%;
+  display:block;
+  padding:0;
+  margin:0;
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+#bonus .bonus-card img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* CASHBACK */
+#cashback .bonus-main-card{
+  max-width:900px;
+  margin:20px auto 0;
+}
+
+#cashback .catalog-card{
+  width:100%;
+  display:block;
+  padding:0;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+#cashback .catalog-card img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* LEGALITAS */
+#legalitas .about-grid{
+  max-width:1100px;
+  margin:20px auto 0;
+  gap:18px;
+}
+
+/* LOKASI */
+#lokasi .location-wrap{
+  max-width:1100px;
+  margin:20px auto 0;
+}
+
+/* JUDUL BAGIAN */
+#bonus .section-title,
+#cashback .section-title,
+#legalitas .section-title,
+#lokasi .section-title{
+  margin-bottom:8px;
+}
+
+#bonus .section-sub,
+#cashback .section-sub,
+#legalitas .section-sub,
+#lokasi .section-sub{
+  margin-bottom:18px;
+}
+
+/* HP */
+@media(max-width:800px){
+  #bonus .bonus-grid{
+    grid-template-columns:1fr;
+  }
+
+  #bonus,
+  #cashback,
+  #legalitas,
+  #lokasi{
+    padding-top:28px !important;
+    padding-bottom:28px !important;
+  }
+}
 </style>
 </head>
 <body>
